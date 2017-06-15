@@ -18,7 +18,9 @@
  */
 
 package io.cordova.surgipal;
-
+import com.microsoft.azure.mobile.MobileCenter;
+import com.microsoft.azure.mobile.analytics.Analytics;
+import com.microsoft.azure.mobile.crashes.Crashes;
 import android.os.Bundle;
 import org.apache.cordova.*;
 
@@ -27,6 +29,8 @@ public class MainActivity extends CordovaActivity
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
+    MobileCenter.start(getApplication(), "fa894368-a717-4250-926d-f14a7c665529",
+                   Analytics.class, Crashes.class);
         super.onCreate(savedInstanceState);
         // Set by <content src="index.html" /> in config.xml
         loadUrl(launchUrl);
