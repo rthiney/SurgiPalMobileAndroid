@@ -244,13 +244,18 @@ android {
         addSigningProps(cdvDebugSigningPropertiesFile, signingConfigs.debug)
     }
 }
-
+dependencies {
+    def mobileCenterSdkVersion = '0.9.0'
+    compile "com.microsoft.azure.mobile:mobile-center-analytics:${mobileCenterSdkVersion}"
+    compile "com.microsoft.azure.mobile:mobile-center-crashes:${mobileCenterSdkVersion}"
+}
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
     // SUB-PROJECT DEPENDENCIES START
     debugCompile project(path: "CordovaLib", configuration: "debug")
     releaseCompile project(path: "CordovaLib", configuration: "release")
     // SUB-PROJECT DEPENDENCIES END
+     
 }
 
 def promptForReleaseKeyPassword() {
